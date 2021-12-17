@@ -79,6 +79,7 @@ class DMBOT():
         time.sleep(10)
         with open(r"message.log","a",encoding="utf-8")as f:
             f.write(f"{CURRENT_TIME()} : Message Sent : {self.message_sent}, Target Name : {self.target_name}"+"\n")
+        self.driver.quit()
         # Set SHUTDOWN=True If You Want To Shutdown PC After Sending Message (Optional)
         if SHUTDOWN:
             os.system("shutdown /s /t 1")
@@ -94,5 +95,5 @@ if __name__ == "__main__":
     ############################# NON SCHEDULED ##############################
     dm_bot.send_message()
     ##########################################################################
-    time.sleep(60)
+    time.sleep(30)
     dm_bot.shutdown_pc()
