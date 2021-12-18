@@ -9,6 +9,9 @@ Author : Abhimanyu Sharma
 git clone https://github.com/N1nja0p/Instagram-DM-Bot.git
 ```
 
+```bash
+pip install -r requirements.txt
+```
 ## Config
 Run ```python config.py``` To Setup
 ```bash
