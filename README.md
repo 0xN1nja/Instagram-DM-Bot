@@ -1,6 +1,7 @@
 # Instagram DM Bot (Selenium)
 
 A Selenium Script To Schedule And Send Direct Messages On Instagram
+
 Author : Abhimanyu Sharma
 ## Installation
 
