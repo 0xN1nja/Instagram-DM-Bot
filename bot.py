@@ -9,15 +9,26 @@ import time
 import os
 import discord_notifications
 import datetime
-# Constants
+try:
+    with open("config.txt","r")as f:
+        l=f.readlines()
+        # Constants
+        USERNAME=l[0].replace("\n","")
+        PASSWORD=l[1].replace("\n","")
+        TARGET_USERNAME=l[2].replace("\n","")
+        MESSAGE=l[3].replace("\n","")
+        SHUTDOWN=l[4].replace("\n","")
+        SENDING_TIME=l[5].replace("\n","")
+        CHROME_DRIVER_PATH=l[6].replace("\n","")
+        DONT_SCHEDULE=bool(l[7].replace("\n",""))
+        SCHEDULE_MESSAGE=bool(l[8].replace("\n",""))
+        print(l)
+except:
+    print("Please Run config.py Before Running bot.py")
+    exit()
 CURRENT_TIME=lambda:datetime.datetime.now().strftime("%H:%M:%S")
 TEMP_TIME=lambda:datetime.datetime.now().strftime("%H:%M")
-MESSAGE='''''' # Add Message To Send
-TARGET_USERNAME="" # Add Target's Username
-SENDING_TIME="00:00" # 24hr Format // 00:00
-SHUTDOWN=False # Set This To True To Shutdown PC After Sending Message (Optional)
-CHROME_DRIVER_PATH=r"" # Download Chrome Driver (https://chromedriver.chromium.org/)
-CREDENTIALS={"username":"","password":""} # Add Your Credentials
+CREDENTIALS={"username":USERNAME,"password":PASSWORD}
 chrome_options=Options()
 chrome_options.add_argument("--start-maximized")
 class DMBOT():
@@ -88,12 +99,14 @@ if __name__ == "__main__":
     dm_bot.login()
     dm_bot.find_target()
     ############################### SCHEDULED ################################
-    # while True:
-    #     if TEMP_TIME() == SENDING_TIME:
-    #         dm_bot.send_message()
-    #         break
+    if SCHEDULE_MESSAGE==True:
+        while True:
+            if TEMP_TIME() == SENDING_TIME:
+                dm_bot.send_message()
+                break
     ############################# NON SCHEDULED ##############################
-    dm_bot.send_message()
+    if DONT_SCHEDULE:
+        dm_bot.send_message()
     ##########################################################################
     time.sleep(30)
     dm_bot.shutdown_pc()

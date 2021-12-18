@@ -1,0 +1,2 @@
+selenium==4.1.0
+Discord-Webhooks==1.0.4

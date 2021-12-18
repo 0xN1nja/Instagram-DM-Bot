@@ -1,6 +1,8 @@
 from discord_webhooks import DiscordWebhooks
 def notify(status:str,time:str,target_name:str=None):
-    WEBHOOK_URL='' # Enter Your Webhook URL
+    with open("config.txt","r")as f:
+        l=f.readlines()
+        WEBHOOK_URL=l[9].replace("\n","")
     webhook=DiscordWebhooks(WEBHOOK_URL)
     webhook.set_footer(text="--Abhimanyu Sharma")
     if status=="login-success":
