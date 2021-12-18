@@ -1,15 +1,17 @@
 # Copyright Abhimanyu Sharma, https://github.com/N1nja0p
-from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.support import expected_conditions as EC
-import time
-import os
-import discord_notifications
-import datetime
-
+try:
+    from selenium import webdriver
+    from selenium.webdriver.common.keys import Keys
+    from selenium.webdriver.support.ui import WebDriverWait
+    from selenium.webdriver.common.by import By
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.support import expected_conditions as EC
+    import time
+    import os
+    import discord_notifications
+    import datetime
+except:
+    print("Modules Not Found. Run pip install -r requirements.txt To Continue")
 try:
     with open("config.txt", "r") as f:
         l = f.readlines()
