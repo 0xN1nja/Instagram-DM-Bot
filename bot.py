@@ -22,7 +22,6 @@ try:
         CHROME_DRIVER_PATH=l[6].replace("\n","")
         DONT_SCHEDULE=bool(l[7].replace("\n",""))
         SCHEDULE_MESSAGE=bool(l[8].replace("\n",""))
-        print(l)
 except:
     print("Please Run config.py Before Running bot.py")
     exit()
