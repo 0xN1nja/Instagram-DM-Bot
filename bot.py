@@ -20,8 +20,8 @@ try:
         SHUTDOWN=l[4].replace("\n","")
         SENDING_TIME=l[5].replace("\n","")
         CHROME_DRIVER_PATH=l[6].replace("\n","")
-        DONT_SCHEDULE=bool(l[7].replace("\n",""))
-        SCHEDULE_MESSAGE=bool(l[8].replace("\n",""))
+        DONT_SCHEDULE=l[7].replace("\n","")
+        SCHEDULE_MESSAGE=l[8].replace("\n","")
 except:
     print("Please Run config.py Before Running bot.py")
     exit()
@@ -91,20 +91,20 @@ class DMBOT():
             f.write(f"{CURRENT_TIME()} : Message Sent : {self.message_sent}, Target Name : {self.target_name}"+"\n")
         self.driver.quit()
         # Set SHUTDOWN=True If You Want To Shutdown PC After Sending Message (Optional)
-        if SHUTDOWN:
+        if SHUTDOWN=="True":
             os.system("shutdown /s /t 1")
 if __name__ == "__main__":
     dm_bot=DMBOT(CREDENTIALS["username"],CREDENTIALS["password"])
     dm_bot.login()
     dm_bot.find_target()
     ############################### SCHEDULED ################################
-    if SCHEDULE_MESSAGE==True:
+    if SCHEDULE_MESSAGE=="True":
         while True:
             if TEMP_TIME() == SENDING_TIME:
                 dm_bot.send_message()
                 break
     ############################# NON SCHEDULED ##############################
-    if DONT_SCHEDULE:
+    if DONT_SCHEDULE == "True":
         dm_bot.send_message()
     ##########################################################################
     time.sleep(30)
