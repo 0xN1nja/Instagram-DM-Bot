@@ -28,6 +28,7 @@ welcome_message = '''
  #    #  #    #     #
  #####    ####      #
 '''
+print(welcome_message)
 
 
 def validate_schedule_input(scheduling_time: str):
