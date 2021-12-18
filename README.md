@@ -6,7 +6,7 @@ Author : Abhimanyu Sharma
 ## Installation
 
 ```bash
-https://github.com/N1nja0p/Instagram-DM-Bot.git
+git clone https://github.com/N1nja0p/Instagram-DM-Bot.git
 ```
 
 ## Config
