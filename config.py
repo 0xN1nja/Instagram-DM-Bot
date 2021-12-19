@@ -2,8 +2,10 @@
 import getpass
 import re
 import os
+from pathlib import Path
 
-welcome_message = '''
+# Constants
+WELCOME_MESSAGE = '''
   ###
    #     #    #   ####    #####    ##     ####   #####     ##    #    #
    #     ##   #  #          #     #  #   #    #  #    #   #  #   ##  ##
@@ -28,7 +30,7 @@ welcome_message = '''
  #    #  #    #     #
  #####    ####      #
 '''
-print(welcome_message)
+print(WELCOME_MESSAGE)
 
 
 def validate_schedule_input(scheduling_time: str):
