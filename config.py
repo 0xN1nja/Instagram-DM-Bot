@@ -2,7 +2,6 @@
 import getpass
 import re
 import os
-from pathlib import Path
 
 # Constants
 WELCOME_MESSAGE = '''
