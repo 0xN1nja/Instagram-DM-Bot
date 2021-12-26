@@ -109,7 +109,6 @@ class DMBOT():
     def shutdown_pc(self):
         discord_notifications.notify("shuttingdown-pc", CURRENT_TIME())
         print("Shutting Down PC!")
-        time.sleep(10)
         with open(r"message.log", "a", encoding="utf-8") as f:
             f.write(f"{CURRENT_TIME()} : Message Sent : {self.message_sent}, Target Name : {self.target_name}" + "\n")
         self.driver.quit()
