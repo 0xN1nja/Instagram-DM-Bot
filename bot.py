@@ -86,7 +86,7 @@ class DMBOT():
             discord_notifications.notify("target-not-found", CURRENT_TIME(), TARGET_USERNAME)
         else:
             discord_notifications.notify("found-target", CURRENT_TIME())
-            print(f"Target Found!")
+            print("Target Found!")
 
     def send_message(self):
         try:
