@@ -3,7 +3,7 @@ A Selenium Script To Schedule And Send Direct Messages On Instagram
 ## Author
 Abhimanyu Sharma, https://github.com/N1nja0p
 ## Installation
-Clone Repository :
+Clone Repository
 ```bash
 git clone https://github.com/N1nja0p/Instagram-DM-Bot.git
 ```
