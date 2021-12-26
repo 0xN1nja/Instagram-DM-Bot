@@ -131,5 +131,5 @@ if __name__ == "__main__":
     if DONT_SCHEDULE == "True":
         dm_bot.send_message()
     ##########################################################################
-    time.sleep(30)
+    time.sleep(10)
     dm_bot.shutdown_pc()
