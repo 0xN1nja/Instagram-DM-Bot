@@ -28,6 +28,32 @@ try:
 except:
     print("Please Run config.py Before Running bot.py")
     exit()
+WELCOME_MESSAGE = '''
+  ###
+   #     #    #   ####    #####    ##     ####   #####     ##    #    #
+   #     ##   #  #          #     #  #   #    #  #    #   #  #   ##  ##
+   #     # #  #   ####      #    #    #  #       #    #  #    #  # ## #
+   #     #  # #       #     #    ######  #  ###  #####   ######  #    #
+   #     #   ##  #    #     #    #    #  #    #  #   #   #    #  #    #
+  ###    #    #   ####      #    #    #   ####   #    #  #    #  #    #
+
+
+ #####   #    #
+ #    #  ##  ##
+ #    #  # ## #
+ #    #  #    #
+ #    #  #    #
+ #####   #    #
+
+
+ #####    ####    #####
+ #    #  #    #     #
+ #####   #    #     #
+ #    #  #    #     #
+ #    #  #    #     #
+ #####    ####      #
+'''
+print(WELCOME_MESSAGE)
 CURRENT_TIME = lambda: datetime.datetime.now().strftime("%H:%M:%S")
 TEMP_TIME = lambda: datetime.datetime.now().strftime("%H:%M")
 CREDENTIALS = {"username": USERNAME, "password": PASSWORD}
