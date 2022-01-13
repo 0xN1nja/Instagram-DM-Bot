@@ -1,4 +1,4 @@
-# Copyright Abhimanyu Sharma, https://github.com/N1nja0p
+# Copyright Abhimanyu Sharma, https://github.com/0xN1nja
 try:
     from selenium import webdriver
     from selenium.webdriver.common.keys import Keys
