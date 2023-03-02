@@ -141,14 +141,14 @@ if __name__ == "__main__":
     dm_bot = DMBOT(CREDENTIALS["username"], CREDENTIALS["password"])
     dm_bot.login()
     dm_bot.find_target()
-    # # Scheduled
-    # if SCHEDULE_MESSAGE == "True":
-    #     while True:
-    #         if TEMP_TIME() == SENDING_TIME:
-    #             dm_bot.send_message()
-    #             break
-    # # Non Scheduled
-    # if DONT_SCHEDULE == "True":
-    #     dm_bot.send_message()
-    # time.sleep(10)
-    # dm_bot.shutdown_pc()
+    # Scheduled
+    if SCHEDULE_MESSAGE == "True":
+        while True:
+            if TEMP_TIME() == SENDING_TIME:
+                dm_bot.send_message()
+                break
+    # Non Scheduled
+    if DONT_SCHEDULE == "True":
+        dm_bot.send_message()
+    time.sleep(10)
+    dm_bot.shutdown_pc()
