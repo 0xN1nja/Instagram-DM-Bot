@@ -72,18 +72,13 @@ class DMBOT():
         try:
             WebDriverWait(self.driver, 100000).until(
                 EC.visibility_of_element_located((By.XPATH, '//*[@id="loginForm"]/div/div[1]/div/label/input')))
-            self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[1]/div/label/input').send_keys(
+            self.driver.find_element(By.XPATH,'//*[@id="loginForm"]/div/div[1]/div/label/input').send_keys(
                 self.username)  # Username Field
-            self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[2]/div/label/input').send_keys(
+            self.driver.find_element(By.XPATH,'//*[@id="loginForm"]/div/div[2]/div/label/input').send_keys(
                 self.password)  # Password Field
-            self.driver.find_element_by_xpath('//*[@id="loginForm"]/div/div[3]/button').click()  # Submit Button
-            WebDriverWait(self.driver, 10000000000).until(EC.visibility_of_element_located(
-                (By.XPATH, '//*[@id="react-root"]/section/main/div/div/div/div/button')))
-            self.driver.find_element_by_xpath(
-                '//*[@id="react-root"]/section/main/div/div/div/div/button').click()  # Save Info (Not Now) Button
-            time.sleep(10)  # Replace With 60 To Avoid Error
-            self.driver.execute_script(
-                'document.querySelector("body > div.RnEpo.Yx5HN > div > div > div > div.mt3GC > button.aOOlW.HoLwm").click()')  # Turn On Notifications (Not Now) Button
+            self.driver.find_element(By.XPATH,'//*[@id="loginForm"]/div/div[3]/button').click()  # Submit Button
+            time.sleep(5)
+            self.driver.get("https://www.instagram.com/direct/new/")
         except:
             discord_notifications.notify("login-failed", CURRENT_TIME())
             print("Login Failed!")
@@ -93,19 +88,18 @@ class DMBOT():
 
     def find_target(self):
         try:
-            self.driver.get("https://www.instagram.com/direct/new/")
             WebDriverWait(self.driver, 10000).until(EC.visibility_of_element_located(
                 (By.XPATH, '/html/body/div[2]/div/div/div[2]/div[1]/div/div[2]/input')))
-            target_username = self.driver.find_element_by_xpath(
+            target_username = self.driver.find_element(By.XPATH,
                 '/html/body/div[2]/div/div/div[2]/div[1]/div/div[2]/input')
             time.sleep(5)
             target_username.send_keys(TARGET_USERNAME)
             WebDriverWait(self.driver, 100000).until(
                 EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/div/div[2]/div[2]/div[1]/div')))
             time.sleep(2)
-            self.driver.find_element_by_xpath('/html/body/div[2]/div/div/div[2]/div[2]/div[1]/div').click()  # Checkbox
+            self.driver.find_element(By.XPATH,'/html/body/div[2]/div/div/div[2]/div[2]/div[1]/div').click()  # Checkbox
             time.sleep(2)
-            self.driver.find_element_by_xpath(
+            self.driver.find_element(By.XPATH,
                 '/html/body/div[2]/div/div/div[1]/div/div[2]/div/button/div').click()  # Next Button
             time.sleep(5)
         except:
@@ -118,11 +112,11 @@ class DMBOT():
         try:
             WebDriverWait(self.driver, 100000).until(EC.visibility_of_element_located((By.XPATH,
                                                                                        '//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')))
-            message_textarea = self.driver.find_element_by_xpath(
+            message_textarea = self.driver.find_element(By.XPATH,
                 '//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div/div/div[2]/textarea')  # Message Textarea
             time.sleep(5)
             message_textarea.send_keys(MESSAGE + Keys.ENTER)  # Send Message And Press ENTER
-            self.target_name = str(self.driver.find_element_by_xpath(
+            self.target_name = str(self.driver.find_element(By.XPATH,
                 '//*[@id="react-root"]/section/div/div[2]/div/div/div[2]/div[1]/div/div/div[2]/div/div[2]/button/div/div/div').get_attribute(
                 "innerHTML"))  # Capture Target's Name
         except:
@@ -147,15 +141,14 @@ if __name__ == "__main__":
     dm_bot = DMBOT(CREDENTIALS["username"], CREDENTIALS["password"])
     dm_bot.login()
     dm_bot.find_target()
-    ############################### SCHEDULED ################################
-    if SCHEDULE_MESSAGE == "True":
-        while True:
-            if TEMP_TIME() == SENDING_TIME:
-                dm_bot.send_message()
-                break
-    ############################# NON SCHEDULED ##############################
-    if DONT_SCHEDULE == "True":
-        dm_bot.send_message()
-    ##########################################################################
-    time.sleep(10)
-    dm_bot.shutdown_pc()
+    # # Scheduled
+    # if SCHEDULE_MESSAGE == "True":
+    #     while True:
+    #         if TEMP_TIME() == SENDING_TIME:
+    #             dm_bot.send_message()
+    #             break
+    # # Non Scheduled
+    # if DONT_SCHEDULE == "True":
+    #     dm_bot.send_message()
+    # time.sleep(10)
+    # dm_bot.shutdown_pc()
